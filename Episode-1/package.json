@@ -1,0 +1,14 @@
+{
+  "name": "episode-1",
+  "version": "1.0.0",
+  "description": "This app describe about some basic knowledge",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Prasanta Dutta",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
