@@ -1,0 +1,15 @@
+{
+  "name": "episode-2",
+  "version": "1.0.0",
+  "description": "About parcel: Built live server",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Prasanta Dutta",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.15.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
