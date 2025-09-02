@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #cac7c7;
+    box-sizing: border-box;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    border: 2px solid bisque;
+}
+.logo-name{
+    display: flex;
+}
+.logo{
+    height: 80px;
+    width: 80px;
+    padding: 5px;
+}
+.company-name{
+    font-size: 36px;
+    color: orangered;
+    padding-left: 30px;
+    margin: auto;
+}
+.nav-item-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+}
+.nav-items{
+    list-style-type: none;
+    padding: 10px;
+    font-size: 22px ;
+    color: rgba(244, 75, 14, 0.8);
+    border-bottom: 2px solid #cac7c7;
+}
+.nav-items:hover{
+    cursor: pointer;
+    color: rgba(244, 75, 14, 1);
+    font-weight: 600;
+    border-bottom: 2px solid orangered;
+}
+.search-box{
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    width: 60%;
+    text-align: center;
+
+}
+.search-field{
+    height: 50px;
+    width: 90%;
+    padding: 0 10px;
+    outline: none;
+    border: 1px solid #fff;
+    font-size: 20px;
+}
+.search-btn{
+    height: 50px;
+    width: 10%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orangered;
+    font-size: 24px;
+    color: #fff;
+    border: 1px solid #fff
+}
+.res-layout{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    padding: 20px 10px;
+}
+.card-container{
+    width: 300px;
+    padding: 5px;
+    border: 2px solid #cac7c7;
+    padding-bottom: 20px;
+    margin: 5px;
+}
+.card-container:hover{
+    border: 2px solid #fff;
+}
+.card-img{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+.food-details{
+    padding: 20px;
+}
