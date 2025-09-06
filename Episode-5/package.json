@@ -15,6 +15,7 @@
   "dependencies": {
     "cors-anywhere": "^0.4.4",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^6.22.3"
   }
 }

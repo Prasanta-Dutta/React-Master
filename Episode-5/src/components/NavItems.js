@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export const NavItems = () => {
     return (
         <>
             <ul className="nav-item-container">
-                <li className="nav-items">Home</li>
-                <li className="nav-items">About</li>
-                <li className="nav-items">Contact</li>
-                <li className="nav-items">Support</li>
+                <Link to={"/"} className="nav-items">Home</Link>
+                <Link to={"/about"} className="nav-items">About</Link>
+                <Link to={"/contact"} className="nav-items">Contact</Link>
+                <Link to={"/support"} className="nav-items">Support</Link>
             </ul>
         </>
     )
