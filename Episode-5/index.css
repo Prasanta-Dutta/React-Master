@@ -136,3 +136,7 @@
 .restaurant-info, .item-info{
     border: 1px solid salmon;
 }
+.res-card{
+    text-decoration: none;
+    color: rgb(53, 52, 43);
+}

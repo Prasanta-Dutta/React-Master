@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import data from "../api/ApiData";
+import {Link} from "react-router-dom";
 import ResturantCard from "./ResturantCard.js";
 import { ShimmerCard } from "./ShimmerCard.js";
 
@@ -68,13 +68,7 @@ export const ResturantLayout = () => {
 
     if (apiRawData.length === 0) {
         return (
-            <div className="shimmer-layout">
-                {
-                    Array(10).fill(0).map((_, index) => (
-                        <ShimmerCard key={index} />
-                    ))
-                }
-            </div>
+            <ShimmerCard />
         );
     }
 
@@ -85,7 +79,10 @@ export const ResturantLayout = () => {
                 {
                     cardData?.filter((item, index) => item?.card?.card?.info)?.map((item, index) => {
                         return (
-                            <ResturantCard key={index} resData={item} />
+                            // Also can pas id as props to each card rather than passing param to url
+                            <Link className="res-card" to={"/restaurant/menu/" + item?.card?.card?.info?.id} key={index}>
+                                <ResturantCard resData={item} />
+                            </Link>
                         )
                     })
                 }
