@@ -1,9 +1,11 @@
+import { RESTAURANT_IMAGE_URL } from "../utils/constant";
+
 const ResturantCard = (props) => {
     const {resData} = props;
     return (
         <>
             <div className="card-container">
-                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData?.card?.card?.info?.cloudinaryImageId} className="card-img" alt="Food Items" />
+                <img src={RESTAURANT_IMAGE_URL + resData?.card?.card?.info?.cloudinaryImageId} className="card-img" alt="Food Items" />
                 <div className="food-details">
                     <h3>{resData?.card?.card?.info?.name}</h3>
                     <p>{resData?.card?.card?.info?.cuisines?.join(", ")}</p>

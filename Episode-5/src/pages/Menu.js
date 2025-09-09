@@ -1,38 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { ShimmerCard } from "../components/ShimmerCard";
+import { MENU_IMAGE_URL } from "../utils/constant";
+import { useFetchMenuData } from "../utils/useFetchMenuData";
+
 
 export const Menu = () => {
-    const {resId} = useParams();
-    const proxyURL = "http://localhost:8080/"
-    const targetURL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId="+resId+"&catalog_qa=undefined&query=Biryani&submitAction=ENTER";
-    console.log(resId);
 
-    const [apiData, setApiData] = useState([]);
-
-    const fetchData = async () => {
-        const data = await fetch(proxyURL + targetURL);
-        const jsonData = await data.json();
-        console.log("From fetchData", jsonData);
-        return jsonData;
-    }
-
-    useEffect(() => {
-        (async () => {
-            const data = await fetchData();
-            setApiData(data?.data?.cards);
-        })();
-        console.log("From useEffect",apiData);
-    },[]);
-
-    
+    const [apiData] = useFetchMenuData();
 
     return apiData?.length === 0 ? <ShimmerCard /> : (
         <div className="menu-container">
             <div className="restaurant-info">
-                <h1>{apiData[2]?.card?.card?.info?.name}</h1>
-                <img alt="Restaurant Image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + apiData[2]?.card?.card?.info?.cloudinaryImageId} />
-                <p>Cuisins</p>
+                <h1 className="restaurant-name">{apiData[2]?.card?.card?.info?.name}</h1>
+                <img className="restaurant-image" alt="Restaurant Image" src={MENU_IMAGE_URL + apiData[2]?.card?.card?.info?.cloudinaryImageId} />
+                <p className="cuisines">{apiData[2]?.card?.card?.info?.cuisines?.join(", ")}</p>
             </div>
             <div className="item-info">
                 <ul>
@@ -45,4 +25,4 @@ export const Menu = () => {
             </div>
         </div>
     )
-}
+};

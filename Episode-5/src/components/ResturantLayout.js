@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import ResturantCard from "./ResturantCard.js";
 import { ShimmerCard } from "./ShimmerCard.js";
+import { useFetchRestaurantData } from "../utils/useFetchRestaurantData.js";
+import { useOnlineStatus } from "../utils/useOnlineStatus.js";
 
 export const ResturantLayout = () => {
 
@@ -36,35 +38,19 @@ export const ResturantLayout = () => {
     };
     //.......................................................................
 
-
-    const [apiRawData, setApiRawData] = useState([]);
-    const [cardData, setCardData] = useState([]);
-    useEffect(() => {
-        (async () => {
-            console.log("useEffect execution start");
-            const dt = await fetchData();
-            console.log(dt);
-            setApiRawData(dt);
-            setCardData(dt.data.cards);
-            // setCardData((prev) => ([...prev, ...dt.data.cards]));
-            console.log("card data",cardData);
-            console.log("useEffct execution completed");
-        })();
-    }, []);
-
-    const fetchData = async () => {
-        console.log("fetchData execution start");
-        const proxyUrl = 'http://localhost:8080/';
-        const targetUrl = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9966135&lng=77.5920581&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null";
-        var fetchedData = await fetch(proxyUrl + targetUrl);
-        console.log("Hello from fetchData(), before converting json()", fetchedData);
-        fetchedData = await fetchedData.json();
-        console.log("Hello from fetchData(), after converting json()", fetchedData);
-        console.log("fetchData execution completed");
-        return fetchedData;
-    }
+    const [onlineStatus, setOnlineStatus] = useOnlineStatus();
+    const [apiRawData, cardData] = useFetchRestaurantData();
 
     console.log("Body rendered");
+
+    if(onlineStatus === false){
+        return(
+            <div className="online-status-render">
+                <h1>You are ofline</h1>
+                <h2>Please check your internet connection</h2>
+            </div>
+        )
+    }
 
     if (apiRawData.length === 0) {
         return (

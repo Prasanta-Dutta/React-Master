@@ -39,6 +39,16 @@
     border-bottom: 2px solid #cac7c7;
     text-decoration: none;
 }
+.online-status{
+    padding: 10px 40px;
+    font-size: 22px ;
+    color: rgb(2, 152, 2);
+}
+.ofline-status{
+    padding: 10px 40px;
+    font-size: 22px ;
+    color: rgb(184, 12, 12);
+}
 .nav-items:hover{
     cursor: pointer;
     color: rgba(244, 75, 14, 1);
@@ -132,9 +142,30 @@
     display: flex;
     margin: 20px;
     justify-content: space-around;
+    color: rgb(53, 52, 43);
 }
 .restaurant-info, .item-info{
-    border: 1px solid salmon;
+    /* border: 1px solid salmon; */
+    list-style-type: none;
+}
+.restaurant-name{
+    padding: 30px 0;
+    font-size: 36px;
+    text-align: center;
+}
+.restaurant-image{
+    width: 400px;
+    height: 400px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+.cuisines{
+    padding-bottom: 20px;
+    padding-left: 20px;
+    font-size: 24px;
+}
+ul{
+    list-style-type: none;
 }
 .res-card{
     text-decoration: none;

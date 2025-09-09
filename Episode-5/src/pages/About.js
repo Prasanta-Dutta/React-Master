@@ -1,6 +1,11 @@
+import UserClass from "../components/UserClass"
+
 export const About = () => {
     return(
         <>
+            <div className="about-container">
+                <UserClass name="Prasanta" />
+            </div>
             <div className="about-container">
                 <h1>This is About Page</h1>
                 <h2>Learning React Router 😎🚀</h2>
