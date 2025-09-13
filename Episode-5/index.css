@@ -1,4 +1,7 @@
-*{
+@import "tailwindcss";
+
+
+/* *{
     margin: 0;
     padding: 0;
     background-color: #cac7c7;
@@ -32,7 +35,6 @@
     padding-right: 50px;
 }
 .nav-items{
-    /* list-style-type: none; */
     padding: 10px;
     font-size: 22px ;
     color: rgba(244, 75, 14, 0.8);
@@ -145,7 +147,6 @@
     color: rgb(53, 52, 43);
 }
 .restaurant-info, .item-info{
-    /* border: 1px solid salmon; */
     list-style-type: none;
 }
 .restaurant-name{
@@ -170,4 +171,4 @@ ul{
 .res-card{
     text-decoration: none;
     color: rgb(53, 52, 43);
-}
+} */

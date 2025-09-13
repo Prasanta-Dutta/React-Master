@@ -11,6 +11,7 @@ export const useFetchMenuData = () => {
         (async () => {
             const data = await fetchData();
             setApiData(data?.data?.cards);
+            console.log(data);
         })();
         // console.log("From useEffect",apiData);
     },[]);

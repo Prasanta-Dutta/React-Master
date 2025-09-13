@@ -1,5 +1,5 @@
 export const Logo = () => {
     return (
-        <img src="https://cdn.dribbble.com/userupload/21733107/file/original-0cdd8dea6fb0ced84ec55dbefd033ee5.png?resize=752x&vertical=center" alt="App Logo" className="logo" />
+        <img src="https://cdn.dribbble.com/userupload/21733107/file/original-0cdd8dea6fb0ced84ec55dbefd033ee5.png?resize=752x&vertical=center" alt="App Logo" className="w-20 h-20 mx-5 my-auto" />
     )
 };

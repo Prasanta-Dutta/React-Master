@@ -20,12 +20,13 @@ export const useFetchRestaurantData = () => {
     const fetchData = async () => {
         // console.log("fetchData execution start");
         var fetchedData = await fetch(PROXY_URL + ALL_RESTAURANT_LIST_URL);
-        // console.log("Hello from fetchData(), before converting json()", fetchedData);
+        // console.log("Hello from fetchData(), before converting json() ~debugger", fetchedData);
+        // debugger;
         fetchedData = await fetchedData.json();
         // console.log("Hello from fetchData(), after converting json()", fetchedData);
         // console.log("fetchData execution completed");
         return fetchedData;
     };
 
-    return [apiRawData, cardData];
+    return [apiRawData, setApiRawData, cardData, setCardData];
 };

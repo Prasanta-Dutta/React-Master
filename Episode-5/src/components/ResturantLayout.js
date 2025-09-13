@@ -6,22 +6,24 @@ import { useFetchRestaurantData } from "../utils/useFetchRestaurantData.js";
 import { useOnlineStatus } from "../utils/useOnlineStatus.js";
 
 export const ResturantLayout = () => {
+    const [onlineStatus, setOnlineStatus] = useOnlineStatus();
+    const [apiRawData, setApiRawData, cardData, setCardData] = useFetchRestaurantData();
 
     //.......................................................................
     const SearchBar = () => {
         const [searchText, setSearchText] = useState("");
         return (
             <>
-                <div className="search-box">
+                <div className="w-9/12 flex mx-auto my-10 bg-orange-400">
                     <input 
-                        className="search-field" 
+                        className="w-10/12 p-3 text-2xl text-white border-2 border-white placeholder:text-white outline-0" 
                         type="text" 
                         placeholder="Search Your Recipe..."
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
                     <button 
-                        className="search-btn"
+                        className="w-2/12 p-3 text-2xl text-white cursor-pointer border-2 border-white"
                         onClick={() => {
                             const filteredData = apiRawData?.data?.cards?.filter((item) => item?.card?.card?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase()));
                             console.log(searchText + "🍕🍕🍕" + filteredData);
@@ -30,7 +32,7 @@ export const ResturantLayout = () => {
                             setCardData(filteredData);
                         }}
                     >
-                        🍳
+                        Search
                     </button>
                 </div>
             </>
@@ -38,16 +40,13 @@ export const ResturantLayout = () => {
     };
     //.......................................................................
 
-    const [onlineStatus, setOnlineStatus] = useOnlineStatus();
-    const [apiRawData, cardData] = useFetchRestaurantData();
-
     console.log("Body rendered");
 
     if(onlineStatus === false){
         return(
-            <div className="online-status-render">
-                <h1>You are ofline</h1>
-                <h2>Please check your internet connection</h2>
+            <div className="w-9/12 flex m-auto flex-col justify-center items-center">
+                <h1 className="text-4xl m-5">You are ofline</h1>
+                <h2 className="text-2xl">Please check your internet connection</h2>
             </div>
         )
     }
@@ -61,7 +60,7 @@ export const ResturantLayout = () => {
     return (
         <>
             <SearchBar />
-            <div className="res-layout">
+            <div className="w-9/12 flex flex-wrap justify-center border-2 mx-auto">
                 {
                     cardData?.filter((item, index) => item?.card?.card?.info)?.map((item, index) => {
                         return (
